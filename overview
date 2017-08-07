@@ -2,11 +2,11 @@
   提供常用的编解码方法，如DES，SHA1,MD5,BASE64,URL和Souddx等方法
 
   工具包组织形式
-  org.apache.commons.codec.binay
-  org.apache.commons.codec.digest
-  org.apache.commons.codec.language
+  org.apache.commons.codec.binay 支持BASE64,BASE32,HEX编码
+  org.apache.commons.codec.digest 支持MD2,MD4,SHA1,SHA256,SHA384,SHA512格式编码
+  org.apache.commons.codec.language 针对各种语言的编码处理
   org.apache.commons.codec.language.bm
-  org.apache.commons.codec.net
+  org.apache.commons.codec.net URL编解码
   
   
   
