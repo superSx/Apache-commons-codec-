@@ -1,1 +1,9 @@
+Apache-commons-codec是编码解码的工具包，
+提供常用的编解码方法，如DES，SHA1,MD5,BASE64,URL和Souddx等方法
 
+工具包组织形式
+org.apache.commons.codec.binay
+org.apache.commons.codec.digest
+org.apache.commons.codec.language
+org.apache.commons.codec.language.bm
+org.apache.commons.codec.net
