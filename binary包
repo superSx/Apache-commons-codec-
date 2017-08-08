@@ -18,8 +18,22 @@ String newStringUtf16Le(final byte[] bytes)；
 String newStringUtf8(final byte[] bytes)；
 
 class BaseNCodec
-BASE64,BASE32等的抽象父类，提供基本的encode，decode接口
-它是线程安全的
+为BASE64,BASE32等的抽象父类，提供基本的encode（编码），decode（解码）接口方法
+它是线程安全的，主要用于子类继承
+
+class BaseNcodecInputStream
+继承自FilterInputStream
+为BASE64CodecInputStream，BASE32CodecInputStream抽象父类，提供
+read（读入字节流，并编码），mark（定位当前输入流），skip（跳过并丢弃该输入流中的n字节数据）等方法
+主要用于子类继承
+
+class BaseNCodecOutputStream
+继承自FilterOutputStream
+为Base64CodecOutputStream，Base32CodecOutputStream抽象父类，提供
+write（对输出字节流进行编码），flush（把缓冲区的内容强制的写出），close（关闭输出流）等方法
+主要用于子类继承
+
+
 
 class Base32
 继承BaseNCodec类，实现endode，decode抽象方法。提供其BASE32编解码支持
@@ -32,7 +46,25 @@ byte[] decoded=base32.decode(code);
 System.out.println(new String(decoded));//输出xxxxx
 其他编解码方法有encodeAsString(byte[])，encodeToString[byte]，decode(String）
 
+class Base32InputStream
+继承BaseNCodecInputStream类，对输入流进行Base32编码
+基本用法：
+File file=new File("");
+Base32InputStream in=new Base32InputStream(new FileInputStream
+			  (new File(file.getAbsolutePath()+"/src/domin/ByteUtils.java")), true);
+byte[] buffer=new byte[512];
+while(in.read(buffer)!=-1){
+		 System.out.println(new String(buffer));
+		 buffer=new byte[512];
+}	  
+in.close();
 
+
+
+
+
+
+class Base32OutputStream
 
 
 class Base64
@@ -45,6 +77,9 @@ byte[] code=Base64.encodeBase64(str.getBytes());//encode过程
 System.out.println(new String(code));//输出eHh4eHg=
 byte[] decoded=Base64.decodeBase64(code);//decode过程
 System.out.println(new String(decoded));//输出xxxxx
+
+class Base64InputStream
+class Base64OutputSteam
 
 
 
